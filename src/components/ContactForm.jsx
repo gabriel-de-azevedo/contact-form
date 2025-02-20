@@ -1,6 +1,14 @@
+import { toast, ToastContainer } from "react-toastify";
+
 function ContactForm() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    event.target.reset();
+    toast("Message Sent!");
+  };
+
   return (
-    <form className="font-karla">
+    <form onSubmit={handleSubmit} className="font-karla">
       <h1>Contact Us</h1>
       <div>
         <label htmlFor="first-name">First Name</label>
@@ -50,6 +58,7 @@ function ContactForm() {
         </label>
       </div>
       <button type="submit">Submit</button>
+      <ToastContainer />
       {/* Contact Us
 
         First Name
