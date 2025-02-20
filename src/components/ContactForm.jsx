@@ -50,7 +50,9 @@ function ContactForm() {
         </label>
       </div>
       <button type="submit">Submit</button>
-      {/* First Name
+      {/* Contact Us
+
+        First Name
         This field is required
 
         Last Name
