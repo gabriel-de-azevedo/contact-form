@@ -2,6 +2,43 @@ function ContactForm() {
   return (
     <form className="font-karla">
       <h1>Contact Us</h1>
+      <div>
+        <label htmlFor="first-name">First Name</label>
+        <input type="text" name="first-name" id="first-name" />
+      </div>
+      <div>
+        <label htmlFor="last-name">Last Name</label>
+        <input type="text" name="last-name" id="last-name" />
+      </div>
+      <div>
+        <label htmlFor="email-address">Email Address</label>
+        <input type="email" name="email-address" id="email-address" />
+      </div>
+      <div>
+        <label htmlFor="query-type">Query Type</label>
+        <div>
+          <input
+            type="radio"
+            id="general-enquiry"
+            name="query-type"
+            value="general-enquiry"
+          />
+          <label htmlFor="general-enquiry">General Enquiry</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="support-request"
+            name="query-type"
+            value="support-request"
+          />
+          <label htmlFor="support-request">Support Request</label>
+        </div>
+      </div>
+      <div>
+        <label htmlFor="message">Message</label>
+        <textarea name="message" id="message"></textarea>
+      </div>
       {/* First Name
         This field is required
 
