@@ -39,6 +39,17 @@ function ContactForm() {
         <label htmlFor="message">Message</label>
         <textarea name="message" id="message"></textarea>
       </div>
+      <div>
+        <input
+          type="checkbox"
+          name="consent-to-contact"
+          id="consent-to-contact"
+        />
+        <label htmlFor="consent-to-contact">
+          I consent to being contacted by the team
+        </label>
+      </div>
+      <button type="submit">Submit</button>
       {/* First Name
         This field is required
 
