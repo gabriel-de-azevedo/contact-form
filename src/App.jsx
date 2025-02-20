@@ -1,7 +1,7 @@
-import ContactForm from "./components/ContactForm";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
-  return <ContactForm />;
+  return <ContactPage />;
 }
 
 export default App;

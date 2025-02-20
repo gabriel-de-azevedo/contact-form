@@ -11,10 +11,3 @@
   --color-grey-500: hsl(186, 15%, 59%);
   --color-grey-900: hsl(187, 24%, 22%);
 }
-
-body {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: var(--color-green-200);
-}
