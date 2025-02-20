@@ -1,26 +1,29 @@
+import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 
 function ContactForm() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    event.target.reset();
+  const { register, handleSubmit, reset } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
     toast("Message Sent!");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="font-karla">
+    <form onSubmit={handleSubmit(onSubmit)} className="font-karla">
       <h1>Contact Us</h1>
       <div>
         <label htmlFor="first-name">First Name</label>
-        <input type="text" name="first-name" id="first-name" />
+        <input type="text" id="first-name" {...register("first-name")} />
       </div>
       <div>
         <label htmlFor="last-name">Last Name</label>
-        <input type="text" name="last-name" id="last-name" />
+        <input type="text" id="last-name" {...register("last-name")} />
       </div>
       <div>
         <label htmlFor="email-address">Email Address</label>
-        <input type="email" name="email-address" id="email-address" />
+        <input type="email" id="email-address" {...register("email-address")} />
       </div>
       <div>
         <label htmlFor="query-type">Query Type</label>
@@ -28,8 +31,8 @@ function ContactForm() {
           <input
             type="radio"
             id="general-enquiry"
-            name="query-type"
             value="general-enquiry"
+            {...register("query-type")}
           />
           <label htmlFor="general-enquiry">General Enquiry</label>
         </div>
@@ -37,21 +40,21 @@ function ContactForm() {
           <input
             type="radio"
             id="support-request"
-            name="query-type"
             value="support-request"
+            {...register("query-type")}
           />
           <label htmlFor="support-request">Support Request</label>
         </div>
       </div>
       <div>
         <label htmlFor="message">Message</label>
-        <textarea name="message" id="message"></textarea>
+        <textarea id="message" {...register("message")}></textarea>
       </div>
       <div>
         <input
           type="checkbox"
-          name="consent-to-contact"
           id="consent-to-contact"
+          {...register("consent-to-contact")}
         />
         <label htmlFor="consent-to-contact">
           I consent to being contacted by the team
