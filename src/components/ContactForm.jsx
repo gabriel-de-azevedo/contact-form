@@ -17,7 +17,7 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="font-karla">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Contact Us</h1>
       <div>
         <label htmlFor="firstName">First Name</label>

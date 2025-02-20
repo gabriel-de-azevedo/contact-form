@@ -2,7 +2,7 @@ import ContactForm from "../components/ContactForm";
 
 function ContactPage() {
   return (
-    <main className="bg-green-200 sc h-screen grid place-items-center">
+    <main className="grid h-screen place-items-center bg-green-200 font-karla">
       <ContactForm />
     </main>
   );
