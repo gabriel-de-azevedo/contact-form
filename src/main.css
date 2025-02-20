@@ -2,5 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Karla", sans-serif;
+  --font-karla: "Karla", sans-serif;
+
+  --color-green-200: hsl(148, 38%, 91%);
+  --color-green-600: hsl(169, 82%, 27%);
+  --color-red-400: hsl(0, 66%, 54%);
+
+  --color-grey-500: hsl(186, 15%, 59%);
+  --color-grey-900: hsl(187, 24%, 22%);
 }
