@@ -1,6 +1,6 @@
 function ContactForm() {
   return (
-    <form>
+    <form className="font-sans">
       <h1>Contact Us</h1>
       {/* First Name
         This field is required
