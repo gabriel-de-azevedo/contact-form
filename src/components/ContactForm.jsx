@@ -12,7 +12,7 @@ function ContactForm() {
   const onSubmit = () => {
     reset();
     toast(
-      "Message Sent! Thanks for completing the form. We'll be in touch soon!"
+      "Message Sent! Thanks for completing the form. We'll be in touch soon!",
     );
   };
 
