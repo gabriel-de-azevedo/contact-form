@@ -32,17 +32,20 @@ function ContactForm() {
       <div className="flex flex-col gap-6 sm:flex-row">
         <FormLabel text="First Name" error={errors.firstName} required>
           <FormInput
+            error={errors.firstName}
             {...register("firstName", { required: "This field is required" })}
           />
         </FormLabel>
         <FormLabel text="Last Name" error={errors.lastName} required>
           <FormInput
+            error={errors.lastName}
             {...register("lastName", { required: "This field is required" })}
           />
         </FormLabel>
       </div>
       <FormLabel text="Email Address" error={errors.emailAddress} required>
         <FormInput
+          error={errors.emailAddress}
           {...register("emailAddress", {
             required: "This field is required",
             pattern: {
@@ -72,6 +75,7 @@ function ContactForm() {
       </FormLabel>
       <FormLabel text="Message" error={errors.userMessage} required>
         <FormTextarea
+          error={errors.userMessage}
           {...register("userMessage", { required: "This field is required" })}
         />
       </FormLabel>
