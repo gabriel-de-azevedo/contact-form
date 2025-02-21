@@ -26,7 +26,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex w-full max-w-2xl flex-col flex-wrap gap-6 rounded-2xl bg-white p-6 font-normal text-gray-900"
+      className="flex w-full max-w-2xl flex-col flex-wrap gap-6 rounded-2xl bg-white p-6 font-normal text-gray-900 accent-green-600"
     >
       <h1 className="py-1 text-3xl font-bold">Contact Us</h1>
       <div className="flex flex-col gap-6 sm:flex-row">
