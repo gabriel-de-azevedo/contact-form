@@ -1,5 +1,11 @@
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
+import FormLabel from "../atoms/FormLabel";
+import FormInput from "../atoms/FormInput";
+import FormRadio from "../atoms/FormRadio";
+import FormTextarea from "../atoms/FormTextarea";
+import FormCheckbox from "../atoms/FormCheckbox";
+import FormButton from "../atoms/FormButton";
 
 function ContactForm() {
   const {
@@ -9,7 +15,8 @@ function ContactForm() {
     reset,
   } = useForm();
 
-  const onSubmit = () => {
+  const onSubmit = (data) => {
+    console.log(data);
     reset();
     toast(
       "Message Sent! Thanks for completing the form. We'll be in touch soon!",
@@ -17,28 +24,20 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
       <h1>Contact Us</h1>
-      <div>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          id="firstName"
+      <FormLabel text="First Name" error={errors.firstName}>
+        <FormInput
           {...register("firstName", { required: "This field is required" })}
         />
-        {errors.firstName && <p role="alert">{errors.firstName?.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          id="lastName"
+      </FormLabel>
+      <FormLabel text="Last Name" error={errors.lastName}>
+        <FormInput
           {...register("lastName", { required: "This field is required" })}
         />
-        {errors.lastName && <p role="alert">{errors.lastName?.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="emailAddress">Email Address</label>
-        <input
-          id="emailAddress"
+      </FormLabel>
+      <FormLabel text="Email Address" error={errors.emailAddress}>
+        <FormInput
           {...register("emailAddress", {
             required: "This field is required",
             pattern: {
@@ -47,62 +46,36 @@ function ContactForm() {
             },
           })}
         />
-        {errors.emailAddress && (
-          <p role="alert">{errors.emailAddress?.message}</p>
-        )}
-      </div>
-      <div>
-        <label htmlFor="queryType">Query Type</label>
-        <div>
-          <input
-            type="radio"
-            id="generalEnquiry"
-            value="generalEnquiry"
-            {...register("queryType", {
-              required: "Please select a query type",
-            })}
-          />
-          <label htmlFor="generalEnquiry">General Enquiry</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="supportRequest"
-            value="supportRequest"
-            {...register("queryType", {
-              required: "Please select a query type",
-            })}
-          />
-          <label htmlFor="supportRequest">Support Request</label>
-        </div>
-        {errors.queryType && <p role="alert">{errors.queryType?.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="userMessage">Message</label>
-        <textarea
-          id="userMessage"
-          {...register("userMessage", { required: "This field is required" })}
-        ></textarea>
-        {errors.userMessage && (
-          <p role="alert">{errors.userMessage?.message}</p>
-        )}
-      </div>
-      <div>
-        <input
-          type="checkbox"
-          id="consentToContact"
-          {...register("consentToContact", {
-            required: "To submit this form, please consent to being contacted",
+      </FormLabel>
+      <FormLabel text="Query Type" error={errors.queryType}>
+        <FormRadio
+          text="General Enquiry"
+          value="generalEnquiry"
+          {...register("queryType", {
+            required: "Please select a query type",
           })}
         />
-        <label htmlFor="consentToContact">
-          I consent to being contacted by the team
-        </label>
-        {errors.consentToContact && (
-          <p role="alert">{errors.consentToContact?.message}</p>
-        )}
-      </div>
-      <button type="submit">Submit</button>
+        <FormRadio
+          text="Support Request"
+          value="supportRequest"
+          {...register("queryType", {
+            required: "Please select a query type",
+          })}
+        />
+      </FormLabel>
+      <FormLabel text="Message" error={errors.userMessage}>
+        <FormTextarea
+          {...register("userMessage", { required: "This field is required" })}
+        />
+      </FormLabel>
+      <FormCheckbox
+        text="I consent to being contacted by the team"
+        error={errors.consentToContact}
+        {...register("consentToContact", {
+          required: "To submit this form, please consent to being contacted",
+        })}
+      />
+      <FormButton text="Submit" />
       <ToastContainer />
     </form>
   );
