@@ -1,14 +1,16 @@
 import FormError from "./FormError";
+import FormRequiredSymbol from "./FormRequiredSymbol";
 
-function FormCheckbox({ text, error, ...props }) {
+function FormCheckbox({ text, error, required, ...props }) {
   return (
-    <div>
-      <label>
-        <input type="checkbox" {...props} />
+    <label className="flex gap-4 py-3">
+      <input type="checkbox" {...props} />
+      <p>
         {text}
-        <FormError error={error} />
-      </label>
-    </div>
+        {required && <FormRequiredSymbol />}
+      </p>
+      <FormError error={error} />
+    </label>
   );
 }
 

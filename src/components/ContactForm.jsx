@@ -24,19 +24,24 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-      <h1>Contact Us</h1>
-      <FormLabel text="First Name" error={errors.firstName}>
-        <FormInput
-          {...register("firstName", { required: "This field is required" })}
-        />
-      </FormLabel>
-      <FormLabel text="Last Name" error={errors.lastName}>
-        <FormInput
-          {...register("lastName", { required: "This field is required" })}
-        />
-      </FormLabel>
-      <FormLabel text="Email Address" error={errors.emailAddress}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex w-full max-w-2xl flex-col flex-wrap gap-6 rounded-2xl bg-white p-6 font-normal text-gray-900"
+    >
+      <h1 className="py-1 text-3xl font-bold">Contact Us</h1>
+      <div className="flex flex-col gap-6 sm:flex-row">
+        <FormLabel text="First Name" error={errors.firstName} required>
+          <FormInput
+            {...register("firstName", { required: "This field is required" })}
+          />
+        </FormLabel>
+        <FormLabel text="Last Name" error={errors.lastName} required>
+          <FormInput
+            {...register("lastName", { required: "This field is required" })}
+          />
+        </FormLabel>
+      </div>
+      <FormLabel text="Email Address" error={errors.emailAddress} required>
         <FormInput
           {...register("emailAddress", {
             required: "This field is required",
@@ -47,28 +52,31 @@ function ContactForm() {
           })}
         />
       </FormLabel>
-      <FormLabel text="Query Type" error={errors.queryType}>
-        <FormRadio
-          text="General Enquiry"
-          value="generalEnquiry"
-          {...register("queryType", {
-            required: "Please select a query type",
-          })}
-        />
-        <FormRadio
-          text="Support Request"
-          value="supportRequest"
-          {...register("queryType", {
-            required: "Please select a query type",
-          })}
-        />
+      <FormLabel text="Query Type" error={errors.queryType} required>
+        <div className="flex flex-col gap-6 sm:flex-row">
+          <FormRadio
+            text="General Enquiry"
+            value="generalEnquiry"
+            {...register("queryType", {
+              required: "Please select a query type",
+            })}
+          />
+          <FormRadio
+            text="Support Request"
+            value="supportRequest"
+            {...register("queryType", {
+              required: "Please select a query type",
+            })}
+          />
+        </div>
       </FormLabel>
-      <FormLabel text="Message" error={errors.userMessage}>
+      <FormLabel text="Message" error={errors.userMessage} required>
         <FormTextarea
           {...register("userMessage", { required: "This field is required" })}
         />
       </FormLabel>
       <FormCheckbox
+        required
         text="I consent to being contacted by the team"
         error={errors.consentToContact}
         {...register("consentToContact", {
