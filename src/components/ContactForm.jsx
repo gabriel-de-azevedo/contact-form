@@ -92,6 +92,7 @@ function ContactForm() {
         closeButton={false}
         toastClassName="!p-0 !w-fit"
         closeOnClick={true}
+        aria-label="Message Sent"
       />
     </form>
   );
