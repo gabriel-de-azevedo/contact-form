@@ -1,4 +1,4 @@
-import checkIcon from "../assets/icon-success-check.svg";
+import checkIcon from "/icon-success-check.svg";
 
 function FormToast() {
   return (
