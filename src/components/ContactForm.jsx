@@ -6,6 +6,7 @@ import FormRadio from "../atoms/FormRadio";
 import FormTextarea from "../atoms/FormTextarea";
 import FormCheckbox from "../atoms/FormCheckbox";
 import FormButton from "../atoms/FormButton";
+import FormToast from "../atoms/FormToast";
 
 function ContactForm() {
   const {
@@ -15,12 +16,9 @@ function ContactForm() {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
     reset();
-    toast(
-      "Message Sent! Thanks for completing the form. We'll be in touch soon!",
-    );
+    toast(<FormToast />);
   };
 
   return (
@@ -88,7 +86,13 @@ function ContactForm() {
         })}
       />
       <FormButton text="Submit" />
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        hideProgressBar={true}
+        closeButton={false}
+        toastClassName="!p-0 !w-fit"
+        closeOnClick={true}
+      />
     </form>
   );
 }
